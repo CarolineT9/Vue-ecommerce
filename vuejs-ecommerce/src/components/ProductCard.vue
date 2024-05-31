@@ -28,18 +28,19 @@
 <script lang="ts">
 import type { PropType } from 'vue';
 import type { Product } from '../model/Tipos'
+import { useCartStore } from '../stores/cart';
+
 export default {
-    props: {
-        product: {
-            type: Object as PropType<Product>,
-            required: true
-        }
-    },
-    emits: ['addProduct'],
-    methods: {
+        props: {
+            product: {
+                type: Object as PropType<Product>,
+                required: true
+            }
+        }, 
+       methods: {
         onAddButtonClick() {
-            //console.log('agregando produto!' + this.product.id)
-            this.$emit('addProduct')
+            const cartStore = useCartStore()
+            cartStore.addProduct(this.product.id)
         }
     }
 }

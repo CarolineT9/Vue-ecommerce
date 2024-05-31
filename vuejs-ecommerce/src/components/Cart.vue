@@ -20,14 +20,16 @@
 </template>
 
 <script lang="ts">
-import type { CartDetail } from "../model/Tipos"
+/* import type {PropType} from 'vue'
+import type { CartDetail } from '@/model/Tipos'; */
+import { useCartStore } from '../stores/cart';
 
 export default {
-    props: {
-        details: {
-            type: Object as PropType<Array<CartDetail>>,
-            require: true
+    computed:{
+        details (){
+            const cartStore = useCartStore
+            return cartStore.datails;
         }
-    },
+    }
 }
 </script>

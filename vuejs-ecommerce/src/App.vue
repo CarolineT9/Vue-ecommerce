@@ -1,36 +1,35 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+<script lang="ts">
+
+import { RouterView } from 'vue-router'
+import type { CartDetail } from '../src/model/Tipos'
+import { useCartStore } from '../stores/cart';
+import TopBar from '../src/components/TopBar.vue'
+
+export default {
+  components: {
+    TopBar
+  },
+  computed: {
+    details() {
+      const cartStore = userCartStore();
+      return cartStore.details
+    }
+
+  }
+}
 
 </script>
 
 <template>
   <v-app id="inspire">
-    <v-app-bar flat>
-      <v-container class="mx-auto d-flex align-center justify-center">
-        <RouterLink to="/" custom v-slot="{navigate}">
-          <v-btn variant="text"  @click="navigate">Home</v-btn>
-        </RouterLink>
-        <RouterLink to="/cart"  custom v-slot="{navigate}">
-          <v-btn variant="text" @click="navigate">Cart</v-btn>
-        </RouterLink>
-        <RouterLink to="/about"  custom v-slot="{navigate}">
-          <v-btn variant="text"  @click="navigate">About</v-btn>
-        </RouterLink>
-
-        <v-spacer></v-spacer>
-
-        <v-responsive max-width="160">
-          <v-text-field density="compact" label="Search" rounded="lg" variant="solo-filled" flat hide-details
-            single-line></v-text-field>
-        </v-responsive>
-      </v-container>
-    </v-app-bar>
+    
+    <top-bar></top-bar>
 
     <v-main>
       <v-container>
         <RouterView />
       </v-container>
-      
+
     </v-main>
   </v-app>
 
