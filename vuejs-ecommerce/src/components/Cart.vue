@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    
         <v-card>
             <v-card-title>Produtos adicionados ao carrinho:</v-card-title>
             <v-card-text>
@@ -14,13 +14,13 @@
 
             </v-card-text>
         </v-card>
-    </v-container>
+   
 
 
 </template>
 
 <script lang="ts">
-import type { CartDetail } from "./Tipos"
+import type { CartDetail } from "../model/Tipos"
 
 export default {
     props: {

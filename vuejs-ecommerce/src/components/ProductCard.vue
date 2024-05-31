@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import type { PropType } from 'vue';
-import type { Product } from './Tipos'
+import type { Product } from '../model/Tipos'
 export default {
     props: {
         product: {

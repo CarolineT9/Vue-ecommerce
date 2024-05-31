@@ -1,13 +1,15 @@
 <template>
-  <v-row>
-    <v-col v-for="product in products" cols="12" sm="6" md="4" lg="3">
-      
-        <product-card :product="product" @addProduct="onAddProduct(product.id)"/>
-        
-     
-    </v-col>
-  </v-row>
-  <carrinho :details="details" />
+  
+    <v-row>
+      <v-col v-for="product in products" cols="12" sm="6" md="4" lg="3">
+
+        <product-card :product="product" @addProduct="onAddProduct(product.id)" />
+
+
+      </v-col>
+    </v-row>
+    <carrinho :details="details" />
+  
 
 
 
@@ -15,14 +17,14 @@
 
 <script lang="ts">
 import ProductCard from './ProductCard.vue'
-import Carrinho from './Carrinho.vue';
-import type { CartDetail, Product } from './Tipos';
+import Cart from '../components/Cart.vue';
+import type { CartDetail, Product } from '../model/Tipos';
 
 
 export default {
   components: {
     ProductCard,
-    Carrinho
+    Cart
   },
   data() {
     return {
